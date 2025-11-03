@@ -1,0 +1,178 @@
+// Prisma schema for Amex Store backend
+// Designed for SQLite in development; switch provider/url in production.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String          @id @default(uuid())
+  email           String          @unique
+  passwordHash    String
+  name            String
+  avatarUrl       String?         // Uploaded media location (S3, CDN, etc.)
+  role            String          @default("USER")
+  phone           String?
+  preferredContact String?        // whatsapp / email / discord
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  favorites       Favorite[]
+  cartItems       CartItem[]
+  purchases       Purchase[]
+  sessions        Session[]
+  supportTickets  SupportTicket[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+model Product {
+  id             Int             @id
+  slug           String          @unique
+  name           String
+  description    String
+  category       String
+  featured       Boolean         @default(false)
+  image          String
+  rating         Float?
+  reviews        Int?            @default(0)
+  basePrice      Float?
+  inStock        Boolean         @default(true)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  priceOptions   PriceOption[]
+  purchaseItems  PurchaseItem[]
+  favorites      Favorite[]
+  cartItems      CartItem[]
+}
+
+model PriceOption {
+  id           Int       @id @default(autoincrement())
+  product      Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId    Int
+  label        String
+  durationDays Int?      // Optional: convert textual durations to days
+  price        Float
+  stock        Int?
+  paymentUrl   String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  purchaseItems PurchaseItem[]
+  cartItems     CartItem[]
+}
+
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model CartItem {
+  id             Int          @id @default(autoincrement())
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  product        Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId      Int
+  priceOption    PriceOption? @relation(fields: [priceOptionId], references: [id])
+  priceOptionId  Int?
+  quantity       Int          @default(1)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([userId, productId, priceOptionId])
+}
+
+model Purchase {
+  id               String           @id @default(cuid())
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           String
+  status           String           @default("PENDING")
+  total            Float
+  currency         String           @default("BRL")
+  paymentProvider  String?          @default("MANUAL")
+  paymentReference String?
+  paymentUrl       String?
+  notes            String?
+  metadata         String?
+  deliveredAt      DateTime?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  items            PurchaseItem[]
+}
+
+model PurchaseItem {
+  id             Int          @id @default(autoincrement())
+  purchase       Purchase     @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  purchaseId     String
+  product        Product      @relation(fields: [productId], references: [id])
+  productId      Int
+  priceOption    PriceOption? @relation(fields: [priceOptionId], references: [id])
+  priceOptionId  Int?
+  quantity       Int          @default(1)
+  unitPrice      Float
+  deliveryData   String?
+}
+
+model Coupon {
+  code         String    @id
+  description  String
+  discountType String    // percentage | fixed
+  value        Float
+  active       Boolean   @default(true)
+  usageLimit   Int?
+  usedCount    Int       @default(0)
+  startsAt     DateTime?
+  expiresAt    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model SupportTicket {
+  id           String         @id @default(cuid())
+  user         User?          @relation(fields: [userId], references: [id])
+  userId       String?
+  name         String
+  email        String?
+  whatsapp     String?
+  discord      String?
+  channel      String         @default("chatbot")
+  subject      String?
+  message      String
+  status       String         @default("OPEN")
+  metadata     String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model Session {
+  id            String   @id @default(cuid())
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String
+  refreshToken  String   @unique
+  userAgent     String?
+  ipAddress     String?
+  expiresAt     DateTime
+  createdAt     DateTime @default(now())
+}
+
+model PasswordResetToken {
+  id         String   @id @default(cuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  tokenHash  String   @unique
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  usedAt     DateTime?
+}

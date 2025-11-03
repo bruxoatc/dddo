@@ -1,0 +1,226 @@
+import { prisma } from '../config/prisma.js';
+import { AppError } from '../utils/app-error.js';
+import { summarizeCart } from '../utils/cart.js';
+import { summarizeOrder } from '../utils/order.js';
+import { safeJsonParse } from '../utils/json.js';
+
+const ORDER_RELATIONS = {
+  items: {
+    include: {
+      product: true,
+      priceOption: true
+    }
+  }
+};
+
+const getUnitPrice = (item) => {
+  if (item.priceOption) {
+    return Number(item.priceOption.price);
+  }
+  if (item.product.basePrice) {
+    return Number(item.product.basePrice);
+  }
+  return 0;
+};
+
+const evaluateCoupon = async (code, userId) => {
+  if (!code) return null;
+
+  const coupon = await prisma.coupon.findUnique({ where: { code } });
+  if (!coupon || !coupon.active) {
+    throw new AppError('Cupom inválido ou expirado', 400);
+  }
+
+  const now = new Date();
+  if (coupon.startsAt && now < coupon.startsAt) {
+    throw new AppError('Cupom ainda não está disponível', 400);
+  }
+  if (coupon.expiresAt && now > coupon.expiresAt) {
+    throw new AppError('Cupom expirado', 400);
+  }
+  if (coupon.usageLimit && coupon.usedCount >= coupon.usageLimit) {
+    throw new AppError('Cupom atingiu o limite de usos', 400);
+  }
+
+  return { coupon, userId };
+};
+
+const applyCoupon = (total, coupon) => {
+  if (!coupon) {
+    return { discount: 0, totalWithDiscount: total };
+  }
+
+  const { discountType, value } = coupon;
+  let discount = 0;
+
+  if (discountType === 'percentage') {
+    discount = total * (Number(value) / 100);
+  } else {
+    discount = Number(value);
+  }
+
+  const totalWithDiscount = Math.max(total - discount, 0);
+
+  return {
+    discount,
+    totalWithDiscount
+  };
+};
+
+export const createOrderFromCart = async (req, res, next) => {
+  try {
+    const { couponCode, notes } = req.body ?? {};
+    const cartItems = await prisma.cartItem.findMany({
+      where: { userId: req.user.id },
+      include: {
+        product: {
+          include: { priceOptions: true }
+        },
+        priceOption: true
+      }
+    });
+
+    if (cartItems.length === 0) {
+      throw new AppError('Carrinho vazio', 400);
+    }
+
+    const { items, summary } = summarizeCart(cartItems);
+
+    const validatedCoupon = couponCode ? await evaluateCoupon(couponCode, req.user.id) : null;
+    const coupon = validatedCoupon?.coupon;
+    const { discount, totalWithDiscount } = applyCoupon(summary.total, coupon);
+
+    const paymentUrls = cartItems
+      .map((item) => item.priceOption?.paymentUrl)
+      .filter(Boolean);
+
+    const metadataPayload = {
+      subtotal: summary.total,
+      discount,
+      couponCode: coupon?.code ?? null,
+      paymentUrls
+    };
+
+    const order = await prisma.purchase.create({
+      data: {
+        userId: req.user.id,
+        status: 'PENDING',
+        total: totalWithDiscount,
+        paymentProvider: paymentUrls.length === 1 ? 'PAGSEGURO' : 'MANUAL',
+        paymentUrl: paymentUrls.length === 1 ? paymentUrls[0] : null,
+        notes: notes ?? null,
+        metadata: metadataPayload,
+        items: {
+          create: cartItems.map((item) => ({
+            productId: item.productId,
+            priceOptionId: item.priceOptionId,
+            quantity: item.quantity,
+            unitPrice: getUnitPrice(item),
+            deliveryData: {
+              paymentUrl: item.priceOption?.paymentUrl ?? null
+            }
+          }))
+        }
+      },
+      include: ORDER_RELATIONS
+    });
+
+    await prisma.cartItem.deleteMany({ where: { userId: req.user.id } });
+
+    if (coupon) {
+      await prisma.coupon.update({
+        where: { code: coupon.code },
+        data: { usedCount: { increment: 1 } }
+      });
+    }
+
+    res.status(201).json({
+      success: true,
+      data: summarizeOrder(order)
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const listOrders = async (req, res, next) => {
+  try {
+    const orders = await prisma.purchase.findMany({
+      where: { userId: req.user.id },
+      orderBy: { createdAt: 'desc' },
+      include: ORDER_RELATIONS
+    });
+
+    res.json({
+      success: true,
+      data: orders.map(summarizeOrder)
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getOrder = async (req, res, next) => {
+  try {
+    const order = await prisma.purchase.findFirst({
+      where: {
+        id: req.params.id,
+        userId: req.user.id
+      },
+      include: ORDER_RELATIONS
+    });
+
+    if (!order) {
+      throw new AppError('Pedido não encontrado', 404);
+    }
+
+    res.json({
+      success: true,
+      data: summarizeOrder(order)
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const cancelOrder = async (req, res, next) => {
+  try {
+    const order = await prisma.purchase.findFirst({
+      where: {
+        id: req.params.id,
+        userId: req.user.id
+      }
+    });
+
+    if (!order) {
+      throw new AppError('Pedido não encontrado', 404);
+    }
+
+    if (!['PENDING', 'AWAITING_CONFIRMATION'].includes(order.status)) {
+      throw new AppError('Pedido não pode ser cancelado neste status', 400);
+    }
+
+    const existingMetadata = typeof order.metadata === 'object' && order.metadata !== null
+      ? order.metadata
+      : safeJsonParse(order.metadata, {});
+
+    const cancelled = await prisma.purchase.update({
+      where: { id: order.id },
+      data: {
+        status: 'CANCELLED',
+        metadata: {
+          ...existingMetadata,
+          cancelledAt: new Date().toISOString()
+        }
+      },
+      include: ORDER_RELATIONS
+    });
+
+    res.json({
+      success: true,
+      data: summarizeOrder(cancelled)
+    });
+  } catch (error) {
+    next(error);
+  }
+};
