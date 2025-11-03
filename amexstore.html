@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Amex Store - Os Melhores Produtos Digitais com Preços Incríveis</title>
+    <meta name="description" content="Compre produtos digitais premium na Amex Store: contas de jogos, VPNs, softwares e muito mais. Pagamento via Pix com entrega imediata.">
+    <meta name="keywords" content="produtos digitais, contas de jogos, VPN, software, GTA V, Red Dead 2, Discord Nitro, Pix">
+    <meta name="author" content="Amex Store">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://amexstore.com">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Amex Store - Os Melhores Produtos Digitais">
+    <meta property="og:description" content="Compre produtos digitais premium com os melhores preços. Pagamento via Pix com entrega imediata.">
+    <meta property="og:image" content="https://amexstore.com/Pngs/amex%20store.png">
+    <meta property="og:url" content="https://amexstore.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Amex Store">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Amex Store - Os Melhores Produtos Digitais">
+    <meta name="twitter:description" content="Compre produtos digitais premium com os melhores preços. Pagamento via Pix com entrega imediata.">
+    <meta name="twitter:image" content="https://amexstore.com/Pngs/amex%20store.png">
+    <meta name="twitter:site" content="@amexstore">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="Pngs/logo.gif">
+    <link rel="apple-touch-icon" href="Pngs/logo.gif">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00fe87">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Amex Store">
+    
+    <!-- Fonts -->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <link rel="modulepreload" href="scripts/modules/account-suite.js">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Amex Store",
+        "url": "https://amexstore.com",
+        "description": "Loja online de produtos digitais premium",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://amexstore.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Amex Store",
+        "url": "https://amexstore.com",
+        "logo": "https://amexstore.com/Pngs/logo.gif",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-16-99276-4211",
+            "contactType": "customer service",
+            "availableLanguage": "Portuguese"
+        },
+        "sameAs": [
+            "https://wa.me/5516992764211"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <button class="profile-btn" id="profileBtn" type="button" title="Configurar perfil" aria-label="Abrir área do usuário" data-profile-url="perfil.html" data-profile-target="_self">
+                    <span class="profile-avatar" aria-hidden="true">?</span>
+                    <span class="profile-label">Perfil</span>
+                </button>
+                <div class="logo">
+                    <img src="Pngs/logo.gif" alt="Amex Store" class="logo-img">
+                    <span class="logo-text">AMEX STORE</span>
+                </div>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Buscar produtos..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search-results" id="searchResults" aria-live="polite"></div>
+            </div>
+            
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" title="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="favorites-btn" id="favoritesBtn" title="Favoritos">
+                    <i class="fas fa-heart"></i>
+                    <span class="favorites-count">0</span>
+                </button>
+            </div>
+            
+            <nav class="nav">
+                <a href="#produtos" class="nav-link">PRODUTOS</a>
+                <a href="#sobre" class="nav-link">SOBRE</a>
+                <a href="#contato" class="nav-link">CONTATO</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#termos" class="nav-link">TERMOS</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <div class="container">
+            <a href="javascript:void(0)" class="breadcrumb-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="#produtos" class="breadcrumb-link">Produtos</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="install-banner" id="installPrompt" hidden>
+                <div class="install-banner-content">
+                    <div class="install-banner-copy">
+                        <strong>Instale a Amex Store</strong>
+                        <p>Acompanhe suas compras offline e receba novidades primeiro.</p>
+                    </div>
+                    <div class="install-banner-actions">
+                        <button type="button" class="install-btn" id="installPromptAccept">
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                            Instalar
+                        </button>
+                        <button type="button" class="install-dismiss" id="installPromptDismiss">
+                            Agora não
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Bem-vindo à Amex Store</h1>
+                        <p>Os melhores produtos digitais com os melhores preços</p>
+                    </div>
+                    <div class="hero-image">
+                        <picture class="hero-media">
+                            <source type="image/avif" srcset="Pngs/amex store.avif">
+                            <source type="image/webp" srcset="Pngs/amex store.webp">
+                            <img src="Pngs/amex store.png" alt="Amex Store" class="hero-banner" loading="lazy" decoding="async" width="1536" height="1024">
+                        </picture>
+                    </div>
+                </div>
+            </section>
+
+            <section class="onboarding-tips" id="onboardingTips" hidden>
+                <div class="onboarding-header">
+                    <div>
+                        <h3>Comece por aqui</h3>
+                        <p id="onboardingMessage">Selecionamos algumas sugestoes para a sua primeira compra.</p>
+                    </div>
+                    <button class="onboarding-close" id="closeOnboardingTips" aria-label="Fechar sugestoes">&times;</button>
+                </div>
+                <div class="onboarding-grid">
+                    <article class="onboarding-card" data-scroll-target="#produtos">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <h4>Produtos recomendados</h4>
+                        <p>Veja os destaques e ofertas que combinam com voce.</p>
+                        <button type="button">Abrir catalogo</button>
+                    </article>
+                    <article class="onboarding-card" data-scroll-target="#faq">
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
+                        <h4>Conheca o FAQ</h4>
+                        <p>Respostas rapidas sobre entrega, garantias e reembolso.</p>
+                        <button type="button">Ler FAQ</button>
+                    </article>
+                    <article class="onboarding-card" data-open-support>
+                        <i class="fas fa-headset" aria-hidden="true"></i>
+                        <h4>Fale com o suporte</h4>
+                        <p>Tire suas duvidas com nossa equipe em tempo real.</p>
+                        <button type="button">Abrir chat</button>
+                    </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="highlights-section" id="destaques">
+                <div class="section-heading">
+                    <h2>Destaques da semana</h2>
+                    <p>Selecionamos ofertas populares e bem avaliadas para você começar.</p>
+                </div>
+                <div class="highlights-grid" id="highlightsGrid"></div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="produtos" class="products-section">
+                <div class="products-header">
+                    <h2>Nossos Produtos</h2>
+                    <button type="button" class="filters-toggle" id="filtersToggle" aria-expanded="false" aria-controls="filtersPanel">
+                        <i class="fas fa-sliders-h" aria-hidden="true"></i>
+                        <span>Filtros</span>
+                        <span class="filters-toggle-count" id="filtersToggleCount" hidden>0</span>
+                    </button>
+                </div>
+                <div class="products-layout">
+                    <aside class="filters-panel" id="filtersPanel" tabindex="-1" aria-label="Filtros de produtos">
+                        <div class="filters-heading">
+                            <h3>Refinar busca</h3>
+                            <button type="button" class="filters-reset" id="filtersReset">
+                                <i class="fas fa-undo" aria-hidden="true"></i>
+                                <span>Limpar</span>
+                            </button>
+                        </div>
+                        <form class="filters-form" id="filtersForm">
+                            <div class="filter-group">
+                                <label for="filterCategory">Categoria</label>
+                                <select id="filterCategory" name="filterCategory">
+                                    <option value="all">Todas</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="filterPrice">Faixa de preço</label>
+                                <select id="filterPrice" name="filterPrice">
+                                    <option value="all">Todos os preços</option>
+                                    <option value="0-50">Até R$ 50</option>
+                                    <option value="50-150">R$ 50 a R$ 150</option>
+                                    <option value="150-300">R$ 150 a R$ 300</option>
+                                    <option value="300+">Acima de R$ 300</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="filterStock">Disponibilidade</label>
+                                <select id="filterStock" name="filterStock">
+                                    <option value="all">Mostrar tudo</option>
+                                    <option value="available">Disponíveis</option>
+                                    <option value="out-of-stock">Sem estoque</option>
+                                </select>
+                            </div>
+                        </form>
+                        <p class="filters-active-summary" id="filtersActiveSummary" hidden>
+                            <i class="fas fa-filter" aria-hidden="true"></i>
+                            <span id="filtersActiveCount">0 filtros ativos</span>
+                        </p>
+                    </aside>
+                    <div class="products-content">
+                        <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Categorias de produtos"></div>
+                        <div class="products-grid">
+                    
+                    <!-- Produto 1 - Valorant Aim Color -->
+                    <div class="product-card featured" data-product-id="1">
+                        <div class="product-image">
+                            <picture>
+                                <source type="image/avif" srcset="Pngs/valorant aim color.avif">
+                                <source type="image/webp" srcset="Pngs/valorant aim color.webp">
+                                <img src="Pngs/valorant aim color.png" alt="Valorant Aim Color" class="product-img" loading="lazy" decoding="async" width="1536" height="1024">
+                            </picture>
+                            <div class="product-badge">DESTAQUE</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>VALORANT AIM COLOR</h3>
+                            <div class="product-desc">
+                                <p>✅ Versão otimizada, super leve e fácil de usar</p>
+                                <p>⚙️ Configuração simples via aplicativo ou bloco de notas</p>
+                                <br>
+                                <p><strong>💥 Funções inclusas:</strong></p>
+                                <p>🔹 Aim Assist (Aimbot) inteligente</p>
+                                <p>🔹 Trigger Bot funcional – dispara automaticamente</p>
+                                <p>🔹 RCS Controle de Recuo – Auxilio no controle de Recoil da Arma</p>
+                                <br>
+                                <p>💻 Compatível com Windows 10/11 Pro</p>
+                                <p>📅 Suporte até a versão 23H2</p>
+                                <p>🧪 Testado e até o momento 100% Undetectable (UD)</p>
+                                <p>💡 Ideal para quem busca vantagem com segurança e praticidade</p>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option" data-product-id="1" data-price-index="0">
+                                    <div class="price-info-left">
+                                        <span class="duration">1 Dia</span>
+                                        <span class="price">R$20,00</span>
+                                        <span class="stock">Estoque: 15</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(1, 0, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="1" data-price-index="1">
+                                    <div class="price-info-left">
+                                        <span class="duration">7 Dias</span>
+                                        <span class="price">R$75,00</span>
+                                        <span class="stock">Estoque: 6</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(1, 1, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="1" data-price-index="2">
+                                    <div class="price-info-left">
+                                        <span class="duration">30 Dias</span>
+                                        <span class="price">R$150,00</span>
+                                        <span class="stock">Estoque: 10</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(1, 2, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="1" data-price-index="3">
+                                    <div class="price-info-left">
+                                        <span class="duration">Lifetime</span>
+                                        <span class="price">R$375,00</span>
+                                        <span class="stock">Estoque: 5</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(1, 3, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="payment-info">À vista no Pix</p>
+                        </div>
+                    </div>
+
+                    <!-- Produto 2 - Valorant Bypass -->
+                    <div class="product-card" data-product-id="2">
+                        <div class="product-image">
+                            <picture>
+                                <source type="image/avif" srcset="Pngs/VALORANT BYPASS.avif">
+                                <source type="image/webp" srcset="Pngs/VALORANT BYPASS.webp">
+                                <img src="Pngs/VALORANT BYPASS.png" alt="Valorant Bypass" class="product-img" loading="lazy" decoding="async" width="1536" height="1024">
+                            </picture>
+                        </div>
+                        <div class="product-info">
+                            <h3>VALORANT BYPASS</h3>
+                            <div class="product-desc">
+                                <p>Corrija de forma rápida e prática os erros do Valorant relacionados ao TPM, Secure Boot e HVCI!</p>
+                                <p>Compatível com qualquer versão do Windows e 100% seguro.</p>
+                                <br>
+                                <p><strong>🔧 Flags Removidas</strong></p>
+                                <p>• TPM 2.0 Bypass</p>
+                                <p>• Secure Boot Bypass</p>
+                                <p>• HVCI Bypass</p>
+                                <p>• ❌ Sem risco de banimento</p>
+                                <br>
+                                <p><strong>🖥️ Compatível com</strong></p>
+                                <p>• Windows 10 (Todas versões)</p>
+                                <p>• Windows 11 (Todas versões)</p>
+                                <p>• Processadores Intel e AMD</p>
+                                <br>
+                                <p>⚡ Instalação simples e direta — ideal para quem quer resolver o problema e jogar sem dor de cabeça!</p>
+                                <p>🎮 Volte a jogar Valorant agora mesmo!</p>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option" data-product-id="2" data-price-index="0">
+                                    <div class="price-info-left">
+                                        <span class="duration">1 Dia</span>
+                                        <span class="price">R$17,00</span>
+                                        <span class="stock">Estoque: 6</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(2, 0, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="2" data-price-index="1">
+                                    <div class="price-info-left">
+                                        <span class="duration">7 Dias</span>
+                                        <span class="price">R$55,00</span>
+                                        <span class="stock">Estoque: 10</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(2, 1, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="2" data-price-index="2">
+                                    <div class="price-info-left">
+                                        <span class="duration">30 Dias</span>
+                                        <span class="price">R$80,00</span>
+                                        <span class="stock">Estoque: 10</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(2, 2, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="payment-info">À vista no Pix</p>
+                        </div>
+                    </div>
+
+                    <!-- Produto 3 - Valorant NFA -->
+                    <div class="product-card" data-product-id="3">
+                        <div class="product-image">
+                            <picture>
+                                <source type="image/avif" srcset="Pngs/VALORANT NFA.avif">
+                                <source type="image/webp" srcset="Pngs/VALORANT NFA.webp">
+                                <img src="Pngs/VALORANT NFA.png" alt="Valorant NFA" class="product-img" loading="lazy" decoding="async" width="1536" height="1024">
+                            </picture>
+                        </div>
+                        <div class="product-info">
+                            <h3>VALORANT NFA</h3>
+                            <div class="product-desc">
+                                <p>📊 <strong>Atenção:</strong> Devido à alta escassez de contas no mercado e o aumento no custo de obtenção, todos os preços foram reajustados.</p>
+                                <br>
+                                <p>🛠️ Todas as contas foram checadas manualmente, uma por uma.</p>
+                                <p>🎨 As Variações de skins presentes podem influenciar no numero de skins — compre ciente disso.</p>
+                                <p>🔁 As contas podem vir Ativas ou Inativas.</p>
+                                <p>🖥️ Somente para PC (Não funciona no Console)</p>
+                                <br>
+                                <p><strong>⚠️ IMPORTANTE - GARANTIA:</strong></p>
+                                <p>⚠️ Garantia válida apenas no momento da compra</p>
+                                <p>⏱️ Você tem até 5 minutos após a compra para logar no cliente Riot e testar os dados da conta.</p>
+                                <p>🛡️ Se a conta estiver banida externamente ou bloqueada, mande mensagem avisando imediatamente dentro do prazo.</p>
+                                <p>🚫 Banimentos de fila (AFK/Toxicidade) não são cobertos pela garantia.</p>
+                            </div>
+                            <div class="price-options">
+                                <!-- Opções principais (sempre visíveis) -->
+                                <div class="price-option" data-product-id="3" data-price-index="0">
+                                    <div class="price-info-left">
+                                        <span class="duration">Random 1–10 Skins</span>
+                                        <span class="price">R$7,00</span>
+                                        <span class="stock">Estoque: 15</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(3, 0, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="3" data-price-index="1">
+                                    <div class="price-info-left">
+                                        <span class="duration">Random 11–20 Skins</span>
+                                        <span class="price">R$13,00</span>
+                                        <span class="stock">Estoque: 27</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(3, 1, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="3" data-price-index="2">
+                                    <div class="price-info-left">
+                                        <span class="duration">Random 21–30 Skins</span>
+                                        <span class="price">R$17,00</span>
+                                        <span class="stock">Estoque: 11</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(3, 2, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                
+                                <!-- Botão Ver Mais -->
+                                <div class="show-more-container">
+                                    <button class="show-more-btn" onclick="toggleMoreOptions('valorant-nfa')" id="valorant-nfa-toggle">
+                                        <i class="fas fa-chevron-down"></i>
+                                        Ver mais opções
+                                    </button>
+                                </div>
+                                
+                                <!-- Opções extras (inicialmente ocultas) -->
+                                <div class="more-options" id="valorant-nfa-more" style="display: none;">
+                                    <div class="price-option" data-product-id="3" data-price-index="3">
+                                        <div class="price-info-left">
+                                            <span class="duration">Random 31–40 Skins</span>
+                                            <span class="price">R$25,00</span>
+                                            <span class="stock out-of-stock">Estoque: 0</span>
+                                        </div>
+                                        <button class="buy-option-btn disabled" disabled>
+                                            <i class="fas fa-times"></i>
+                                            Esgotado
+                                        </button>
+                                    </div>
+                                    <div class="price-option" data-product-id="3" data-price-index="4">
+                                        <div class="price-info-left">
+                                            <span class="duration">Random 41–50 Skins</span>
+                                            <span class="price">R$30,00</span>
+                                            <span class="stock">Estoque: 2</span>
+                                        </div>
+                                        <button class="buy-option-btn" onclick="addToCartWithOption(3, 4, this)">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            Comprar
+                                        </button>
+                                    </div>
+                                    <div class="price-option" data-product-id="3" data-price-index="5">
+                                        <div class="price-info-left">
+                                            <span class="duration">Random 51–80 Skins</span>
+                                            <span class="price">R$35,00</span>
+                                            <span class="stock">Estoque: 2</span>
+                                        </div>
+                                        <button class="buy-option-btn" onclick="addToCartWithOption(3, 5, this)">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            Comprar
+                                        </button>
+                                    </div>
+                                    <div class="price-option" data-product-id="3" data-price-index="6">
+                                        <div class="price-info-left">
+                                            <span class="duration">Random 81–100 Skins</span>
+                                            <span class="price">R$40,00</span>
+                                            <span class="stock out-of-stock">Estoque: 0</span>
+                                        </div>
+                                        <button class="buy-option-btn disabled" disabled>
+                                            <i class="fas fa-times"></i>
+                                            Esgotado
+                                        </button>
+                                    </div>
+                                    <div class="price-option" data-product-id="3" data-price-index="7">
+                                        <div class="price-info-left">
+                                            <span class="duration">Random 100–150 Skins</span>
+                                            <span class="price">R$45,00</span>
+                                            <span class="stock">Estoque: 1</span>
+                                        </div>
+                                        <button class="buy-option-btn" onclick="addToCartWithOption(3, 7, this)">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            Comprar
+                                        </button>
+                                    </div>
+                                    <div class="price-option" data-product-id="3" data-price-index="8">
+                                        <div class="price-info-left">
+                                            <span class="duration">Random 150–200 Skins</span>
+                                            <span class="price">R$60,00</span>
+                                            <span class="stock out-of-stock">Estoque: 0</span>
+                                        </div>
+                                        <button class="buy-option-btn disabled" disabled>
+                                            <i class="fas fa-times"></i>
+                                            Esgotado
+                                        </button>
+                                    </div>
+                                    <div class="price-option" data-product-id="3" data-price-index="9">
+                                        <div class="price-info-left">
+                                            <span class="duration">200+ Skins</span>
+                                            <span class="price">R$75,00</span>
+                                            <span class="stock out-of-stock">Estoque: 0</span>
+                                        </div>
+                                        <button class="buy-option-btn disabled" disabled>
+                                            <i class="fas fa-times"></i>
+                                            Esgotado
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="payment-info">À vista no Pix</p>
+                        </div>
+                    </div>
+
+                    <!-- Produto 4 - League of Legends -->
+                    <div class="product-card" data-product-id="4">
+                        <div class="product-image">
+                            <picture>
+                                <source type="image/avif" srcset="Pngs/LEAGUEOFMENU.avif">
+                                <source type="image/webp" srcset="Pngs/LEAGUEOFMENU.webp">
+                                <img src="Pngs/LEAGUEOFMENU.png" alt="League of Legends" class="product-img" loading="lazy" decoding="async" width="1536" height="1024">
+                            </picture>
+                        </div>
+                        <div class="product-info">
+                            <h3>LEAGUEOF</h3>
+                            <div class="product-desc">
+                                <p>🔧 Combo Automático</p>
+                                <p>🔧 Farm Automático</p>
+                                <p>🔧 Esquiva Automática</p>
+                                <p>🔧 Libera Todas Skins</p>
+                                <p>🔧 Zoom</p>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option" data-product-id="4" data-price-index="0">
+                                    <div class="price-info-left">
+                                        <span class="duration">7 Dias</span>
+                                        <span class="price">R$75,00</span>
+                                        <span class="stock">Disponível</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(4, 0, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                                <div class="price-option" data-product-id="4" data-price-index="1">
+                                    <div class="price-info-left">
+                                        <span class="duration">30 Dias</span>
+                                        <span class="price">R$100,00</span>
+                                        <span class="stock">Disponível</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(4, 1, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="payment-info">À vista no Pix</p>
+                        </div>
+                    </div>
+
+                    <!-- Produto 5 - Valorant NFA Aleatória -->
+                    <div class="product-card" data-product-id="5">
+                        <div class="product-image">
+                            <picture>
+                                <source type="image/avif" srcset="Pngs/VAVAALE.avif">
+                                <source type="image/webp" srcset="Pngs/VAVAALE.webp">
+                                <img src="Pngs/VAVAALE.png" alt="Valorant NFA Aleatória" class="product-img" loading="lazy" decoding="async" width="1536" height="1024">
+                            </picture>
+                        </div>
+                        <div class="product-info">
+                            <h3>VALORANT NFA ALEATÓRIA</h3>
+                            <div class="product-desc">
+                                <p>✅ CONTA VALORANT NFA (NO FULL ACCESS)</p>
+                                <p>✅ PODE CONTER LEVEL ALTO!</p>
+                                <p>✅ PODE CONTER RANK!</p>
+                                <p>✅ PODE CONTER TODOS AGENTES!</p>
+                                <p>✅ PODE VIR GG OU BR!</p>
+                                <p>✅ PODE VIR 1-10, 10-20, 20-30 SKINS</p>
+                                <p>✅ CONTA VEM ALEATÓRIA</p>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option" data-product-id="5" data-price-index="0">
+                                    <div class="price-info-left">
+                                        <span class="duration">Conta Aleatória</span>
+                                        <span class="price">R$5,00</span>
+                                        <span class="stock">Estoque: 175</span>
+                                    </div>
+                                    <button class="buy-option-btn" onclick="addToCartWithOption(5, 0, this)">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="payment-info">À vista no Pix</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="sobre" class="products-section">
+                <h2>Sobre a Amex Store</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
+                        A Amex Store é sua loja de confiança para produtos digitais premium. Oferecemos contas verificadas, jogos, VPNs e softwares com os melhores preços do mercado.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
+                        Nossa missão é fornecer produtos digitais de alta qualidade com entrega imediata e suporte especializado. Trabalhamos apenas com fornecedores confiáveis para garantir a melhor experiência para nossos clientes.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.6;">
+                        Pagamento seguro via Pix com entrega instantânea. Sua satisfação é nossa prioridade!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contato" class="products-section">
+                <h2>Entre em Contato</h2>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center;">
+                        <div style="padding: 30px; background: rgba(0, 254, 135, 0.1); border-radius: 15px;">
+                            <i class="fas fa-envelope" style="font-size: 32px; color: #00fe87; margin-bottom: 15px;"></i>
+                            <h3 style="margin-bottom: 10px;">Email</h3>
+                            <p>Quauaeng@gmail.com</p>
+                        </div>
+                        <div style="padding: 30px; background: rgba(0, 254, 135, 0.1); border-radius: 15px;">
+                            <i class="fab fa-whatsapp" style="font-size: 32px; color: #00fe87; margin-bottom: 15px;"></i>
+                            <h3 style="margin-bottom: 10px;">WhatsApp</h3>
+                            <p>(16) 99276-4211</p>
+                        </div>
+                        <div style="padding: 30px; background: rgba(0, 254, 135, 0.1); border-radius: 15px;">
+                            <i class="fab fa-discord" style="font-size: 32px; color: #00fe87; margin-bottom: 15px;"></i>
+                            <h3 style="margin-bottom: 10px;">Discord</h3>
+                            <p>9797x</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="products-section">
+                <h2>Perguntas Frequentes</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: rgba(0, 254, 135, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #00fe87;">
+                            <h3 style="margin-bottom: 10px; color: #00fe87;">Como funciona o pagamento?</h3>
+                            <p>Aceitamos pagamento via Pix para entrega imediata. Após a confirmação do pagamento, você receberá seu produto instantaneamente.</p>
+                        </div>
+                        <div style="background: rgba(0, 254, 135, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #00fe87;">
+                            <h3 style="margin-bottom: 10px; color: #00fe87;">Eu posso tomar ban usando algum produto?</h3>
+                            <p>É possível sim. Nossos produtos são desenvolvidos com as melhores práticas de segurança, mas sempre existe um risco mínimo. Recomendamos usar com responsabilidade e seguir nossas orientações de uso seguro.</p>
+                        </div>
+                        <div style="background: rgba(0, 254, 135, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #00fe87;">
+                            <h3 style="margin-bottom: 10px; color: #00fe87;">Oferecem suporte pós-venda?</h3>
+                            <p>Claro! Nossa equipe está disponível 24/7 para ajudar com qualquer dúvida, problema técnico ou configuração. Oferecemos suporte completo via Discord e WhatsApp com tempo de resposta médio de 15 minutos.</p>
+                        </div>
+                        <div style="background: rgba(0, 254, 135, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #00fe87;">
+                            <h3 style="margin-bottom: 10px; color: #00fe87;">Quanto tempo demora a entrega?</h3>
+                            <p>Você recebe o produto assim que enviar o comprovante de pagamento no Discord ou WhatsApp. Nossa equipe processa as entregas em tempo real, garantindo que você tenha acesso imediato ao seu produto.</p>
+                        </div>
+                        <div style="background: rgba(0, 254, 135, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #00fe87;">
+                            <h3 style="margin-bottom: 10px; color: #00fe87;">Vocês oferecem garantia?</h3>
+                            <p>Sim! Oferecemos garantia de funcionamento em todos os nossos produtos. Caso encontre algum problema, nossa equipe técnica irá resolver ou substituir o produto sem custo adicional.</p>
+                        </div>
+                        <div style="background: rgba(0, 254, 135, 0.05); padding: 25px; border-radius: 15px; border-left: 4px solid #00fe87;">
+                            <h3 style="margin-bottom: 10px; color: #00fe87;">Como recebo atualizações dos produtos?</h3>
+                            <p>Todos os clientes recebem atualizações automáticas e acesso vitalício ao nosso servidor Discord exclusivo, onde compartilhamos novidades, atualizações e dicas de uso seguro.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Terms Section -->
+            <section id="termos" class="products-section" style="background: rgba(255, 107, 107, 0.05); border-top: 2px solid #ff6b6b;">
+                <h2 style="color: #ff6b6b;">Termo de Responsabilidade</h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: rgba(255, 107, 107, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #ff6b6b;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 32px; color: #ff6b6b;"></i>
+                            <h3 style="color: #ff6b6b; margin: 0; font-size: 24px;">LEIA ATENTAMENTE ANTES DE COMPRAR</h3>
+                        </div>
+                        
+                        <div style="text-align: left; line-height: 1.8; font-size: 16px;">
+                            <p style="margin-bottom: 20px;"><strong>1. NATUREZA DOS PRODUTOS:</strong> Os produtos oferecidos pela Amex Store são ferramentas de software destinadas para fins educacionais e de teste. O uso destes produtos é de total responsabilidade do usuário.</p>
+                            
+                            <p style="margin-bottom: 20px;"><strong>2. RISCOS E RESPONSABILIDADES:</strong> O cliente está ciente de que o uso de modificações, cheats ou ferramentas similares pode resultar em banimentos permanentes ou temporários nas plataformas de jogos. A Amex Store não se responsabiliza por qualquer consequência decorrente do uso dos produtos.</p>
+                            
+                            <p style="margin-bottom: 20px;"><strong>3. POLÍTICA DE REEMBOLSO:</strong> Devido à natureza digital dos produtos, não oferecemos reembolso após a entrega. Certifique-se de ler todas as informações antes da compra.</p>
+                            
+                            <p style="margin-bottom: 20px;"><strong>4. SUPORTE TÉCNICO:</strong> Oferecemos suporte técnico para configuração e funcionamento dos produtos, mas não nos responsabilizamos por problemas causados por uso inadequado ou violação de termos de serviço de terceiros.</p>
+                            
+                            <p style="margin-bottom: 20px;"><strong>5. IDADE MÍNIMA:</strong> Nossos produtos são destinados apenas para maiores de 18 anos. Menores de idade devem ter autorização dos responsáveis legais.</p>
+                            
+                            <p style="margin-bottom: 20px;"><strong>6. USO RESPONSÁVEL:</strong> Recomendamos fortemente o uso responsável de nossos produtos. Não incentivamos atividades que possam prejudicar a experiência de outros jogadores ou violar termos de serviço.</p>
+                            
+                            <div style="background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; margin-top: 25px; border-left: 4px solid #ff6b6b;">
+                                <p style="margin: 0; font-weight: 600; color: #d63031;">
+                                    <i class="fas fa-hand-paper" style="margin-right: 10px;"></i>
+                                    AO REALIZAR A COMPRA, VOCÊ DECLARA TER LIDO, COMPREENDIDO E ACEITO TODOS OS TERMOS ACIMA. O USO DOS PRODUTOS É POR SUA CONTA E RISCO.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Amex Store</h3>
+                    <p>Sua loja de produtos digitais de confiança</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> Quauaeng@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: (16) 99276-4211</p>
+                    <p><i class="fab fa-discord"></i> Discord: 9797x</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Pagamento</h3>
+                    <div class="payment-icons">
+                        <img src="Formas%20de%20pagamento/pix.svg" alt="Pix" loading="lazy" decoding="async">
+                        <img src="Formas%20de%20pagamento/visa.svg" alt="Visa" loading="lazy" decoding="async">
+                        <img src="Formas%20de%20pagamento/mastercard.svg" alt="Mastercard" loading="lazy" decoding="async">
+                        <img src="Formas%20de%20pagamento/elo.svg" alt="Elo" loading="lazy" decoding="async">
+                        <img src="Formas%20de%20pagamento/hipercard.svg" alt="Hipercard" loading="lazy" decoding="async">
+                        <img src="Formas%20de%20pagamento/american-express.svg" alt="American Express" loading="lazy" decoding="async">
+                        <img src="Formas%20de%20pagamento/discover.svg" alt="Discover" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Amex Store. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Favorites Modal -->
+    <div class="modal" id="favoritesModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-heart"></i> Produtos Favoritos</h3>
+                <button class="modal-close" id="closeFavoritesModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="favoritesItems" class="favorites-items">
+                    <p class="empty-favorites">Nenhum produto favoritado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+        <div class="modal-content profile-modal-content">
+            <div class="modal-header">
+                <h3 id="profileModalTitle"><i class="fas fa-user-circle"></i> Seu Perfil</h3>
+                <button class="modal-close" id="closeProfileModal" aria-label="Fechar perfil">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="profileForm" class="profile-form">
+                    <div class="profile-summary">
+                        <span class="profile-avatar profile-avatar-large" id="profileSummaryAvatar" aria-hidden="true">?</span>
+                        <div class="profile-summary-details">
+                            <p class="profile-summary-name" id="profileSummaryName">Visitante</p>
+                            <p class="profile-summary-email" id="profileSummaryEmail">---</p>
+                            <div class="profile-avatar-actions">
+                                <button type="button" class="profile-avatar-change" id="profileAvatarTrigger">
+                                    <i class="fas fa-camera"></i>
+                                    Trocar foto
+                                </button>
+                                <button type="button" class="profile-avatar-reset" id="profileAvatarReset" disabled>
+                                    <i class="fas fa-undo"></i>
+                                    Remover
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="profileAvatarInput" accept="image/*" hidden>
+                    <div class="form-group">
+                        <label for="profileName">Nome</label>
+                        <input type="text" id="profileName" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">E-mail</label>
+                        <input type="email" id="profileEmail" required placeholder="seuemail@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePassword">Nova senha</label>
+                        <input type="password" id="profilePassword" placeholder="Deixe em branco para manter">
+                        <span class="profile-hint">Use este campo apenas se quiser trocar a senha.</span>
+                    </div>
+                    <div class="profile-actions">
+                        <button type="submit" class="btn-confirm profile-save-btn">
+                            <i class="fas fa-save"></i>
+                            Salvar altera&ccedil;&otilde;es
+                        </button>
+                        <button type="button" class="btn-secondary profile-logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sair da conta
+                        </button>
+                    </div>
+                </form>
+                <div class="profile-sections">
+                    <section class="profile-section">
+                        <header class="profile-section-header">
+                            <h4><i class="fas fa-receipt"></i> Hist&oacute;rico de compras</h4>
+                            <button type="button" class="profile-section-refresh" id="profileHistoryRefresh" title="Atualizar hist&oacute;rico" aria-label="Atualizar historico">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </header>
+                        <p class="profile-empty-state" id="profileHistoryEmpty">
+                            Voc&ecirc; ainda n&atilde;o realizou nenhuma compra.
+                        </p>
+                        <ul class="profile-history-list" id="profileHistoryList" aria-live="polite" hidden></ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Live Support Chat -->
+    <button class="support-chat-btn" id="supportChatBtn" type="button" aria-label="Abrir chat de suporte ao vivo" aria-expanded="false" aria-controls="chatWindow">
+        <i class="fas fa-headset" aria-hidden="true"></i>
+    </button>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-window" id="chatWindow" role="dialog" aria-live="polite" aria-label="Chat de suporte" aria-hidden="true">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <strong id="chatTitle">Suporte ao vivo</strong>
+                    <span class="chat-status">Equipe online agora</span>
+                </div>
+                <button class="chat-close" id="chatCloseBtn" aria-label="Fechar chat">&times;</button>
+            </div>
+            <div class="chat-body" id="chatBody" role="log" aria-live="polite"></div>
+            <form class="chat-input-container" id="chatForm" aria-label="Enviar mensagem para suporte">
+                <input type="text" id="chatMessage" class="chat-input" placeholder="Escreva sua mensagem..." autocomplete="off" aria-label="Mensagem">
+                <button type="submit" class="chat-send" aria-label="Enviar mensagem">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="filters-overlay" id="filtersOverlay" hidden></div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/script.js"></script>
+    
+    <!-- Custom Styles for Show More Button -->
+    <style>
+        .show-more-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .show-more-btn {
+            background: linear-gradient(135deg, #00fe87 0%, #00d16a 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 254, 135, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 auto;
+            min-width: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .show-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 254, 135, 0.4);
+            background: linear-gradient(135deg, #00d16a 0%, #00fe87 100%);
+        }
+        
+        .show-more-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 254, 135, 0.3);
+        }
+        
+        .show-more-btn i {
+            transition: transform 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .show-more-btn:hover i {
+            transform: scale(1.1);
+        }
+        
+        .more-options {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed rgba(0, 254, 135, 0.3);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .more-options .price-option {
+            animation: slideIn 0.3s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .more-options .price-option:nth-child(1) { animation-delay: 0.1s; }
+        .more-options .price-option:nth-child(2) { animation-delay: 0.2s; }
+        .more-options .price-option:nth-child(3) { animation-delay: 0.3s; }
+        .more-options .price-option:nth-child(4) { animation-delay: 0.4s; }
+        .more-options .price-option:nth-child(5) { animation-delay: 0.5s; }
+        .more-options .price-option:nth-child(6) { animation-delay: 0.6s; }
+        .more-options .price-option:nth-child(7) { animation-delay: 0.7s; }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .more-options {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+    </style>
+
+    <!-- Toggle More Options Function -->
+    <script>
+        window.toggleMoreOptions = function(productId) {
+            const defaultBackground = 'linear-gradient(135deg, #00fe87 0%, #00d16a 100%)';
+            const defaultShadow = '0 4px 15px rgba(0, 254, 135, 0.3)';
+            const activeBackground = 'linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%)';
+            const activeShadow = '0 4px 15px rgba(255, 107, 107, 0.3)';
+
+            document.querySelectorAll('.more-options').forEach(options => {
+                options.style.display = 'none';
+                options.classList.remove('expanded');
+                const baseId = options.id ? options.id.replace(/-more$/, '') : null;
+                if (baseId) {
+                    const relatedBtn = document.getElementById(baseId + '-toggle');
+                    if (relatedBtn) {
+                        relatedBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Ver mais opções';
+                        relatedBtn.style.background = defaultBackground;
+                        relatedBtn.style.boxShadow = defaultShadow;
+                    }
+                }
+            });
+
+            const section = document.getElementById(productId + '-more');
+            const toggleBtn = document.getElementById(productId + '-toggle');
+            if (!section || !toggleBtn) {
+                return;
+            }
+
+            const isCurrentlyOpen = section.classList.contains('expanded');
+            if (isCurrentlyOpen) {
+                section.style.display = 'none';
+                section.classList.remove('expanded');
+                toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Ver mais opções';
+                toggleBtn.style.background = defaultBackground;
+                toggleBtn.style.boxShadow = defaultShadow;
+                return;
+            }
+
+            section.style.display = 'block';
+            section.classList.add('expanded');
+            toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Ver menos opções';
+            toggleBtn.style.background = activeBackground;
+            toggleBtn.style.boxShadow = activeShadow;
+        };
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

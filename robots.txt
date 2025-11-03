@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://amexstore.com/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block specific bots if needed (uncomment if necessary)
+# User-agent: BadBot
+# Disallow: /

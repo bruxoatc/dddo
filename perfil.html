@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amex Store - Portal do Cliente</title>
+    <meta name="description" content="Portal exclusivo para clientes Amex Store gerenciarem cadastro, compras e perfil.">
+    <link rel="icon" type="image/x-icon" href="Pngs/logo.gif">
+    <link rel="apple-touch-icon" href="Pngs/logo.gif">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <link rel="modulepreload" href="scripts/modules/account-suite.js">
+</head>
+<body class="account-standalone">
+    <div class="account-shell">
+        <header class="account-header">
+            <a class="account-back" href="amexstore.html">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Voltar para a loja</span>
+            </a>
+            <div class="account-brand">
+                <img src="Pngs/logo.gif" alt="Amex Store" decoding="async">
+                <span>Amex Store</span>
+            </div>
+        </header>
+
+        <main class="account-main">
+            <section class="account-intro">
+                <h1>Seu hub Amex Store</h1>
+                <p>Centralize cadastros, pagamentos e suporte em uma experiencia inspirada nos maiores clubes de fidelidade.</p>
+            </section>
+
+            <div class="auth-overlay" id="authOverlay">
+                <div class="auth-modal">
+                    <button class="auth-modal-close" id="authModalClose" type="button" aria-label="Fechar painel de conta">&times;</button>
+                    <div class="auth-logo">
+                        <img src="Pngs/logo.gif" alt="Amex Store" decoding="async">
+                        <span>Amex Store</span>
+                    </div>
+                    <div class="auth-tabs" role="tablist" aria-label="Selecione a secao de acesso" data-tab-count="2">
+                        <span class="auth-tab-indicator" aria-hidden="true"></span>
+                        <button class="auth-tab active" id="authTabLogin" data-target="loginForm" role="tab" aria-controls="loginForm" aria-selected="true">Login</button>
+                        <button class="auth-tab" id="authTabRegister" data-target="registerForm" role="tab" aria-controls="registerForm" aria-selected="false">Cadastro</button>
+                        <button class="auth-tab account-tab" id="authTabAccount" data-target="accountForm" role="tab" aria-controls="accountForm" aria-selected="false" aria-hidden="true" tabindex="-1">Conta</button>
+                    </div>
+                    <div class="auth-forms">
+                        <form id="loginForm" class="auth-form active" role="tabpanel" aria-labelledby="authTabLogin" aria-hidden="false">
+                            <h3>Entre na sua conta</h3>
+                            <div class="form-group">
+                                <label for="loginEmail">E-mail</label>
+                                <input type="email" id="loginEmail" placeholder="seuemail@exemplo.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Senha</label>
+                                <div class="password-field">
+                                    <input type="password" id="loginPassword" placeholder="Digite sua senha" required>
+                                    <button type="button" class="toggle-password" data-target="loginPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="submit" class="auth-submit">Entrar</button>
+                            <p class="auth-switch">Ainda não tem conta? <a href="#" data-target="registerForm">Cadastre-se</a></p>
+                        </form>
+                        <form id="registerForm" class="auth-form" role="tabpanel" aria-labelledby="authTabRegister" aria-hidden="true" hidden>
+                            <h3>Crie sua conta</h3>
+                            <div class="form-group">
+                                <label for="registerName">Nome de usuario</label>
+                                <input type="text" id="registerName" placeholder="Seu nickname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail">E-mail</label>
+                                <input type="email" id="registerEmail" placeholder="seuemail@exemplo.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword">Senha</label>
+                                <div class="password-field">
+                                    <input type="password" id="registerPassword" placeholder="Crie uma senha" required minlength="6">
+                                    <button type="button" class="toggle-password" data-target="registerPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="submit" class="auth-submit">Cadastrar</button>
+                            <p class="auth-switch">Ja possui conta? <a href="#" data-target="loginForm">Faca login</a></p>
+                        </form>
+                        <form id="accountForm" class="auth-form account-form" role="tabpanel" aria-labelledby="authTabAccount" aria-hidden="true" hidden>
+                            <h3>Bem-vindo de volta!</h3>
+                            <div class="account-summary">
+                                <span class="account-avatar" id="accountAvatar" aria-hidden="true">?</span>
+                                <div>
+                                    <p class="account-name" id="accountUserName">Visitante</p>
+                                    <p class="account-email" id="accountUserEmail">---</p>
+                                </div>
+                            </div>
+                            <p class="account-message">Gerencie suas informacoes ou encerre a sessao quando quiser.</p>
+                            <div class="account-actions">
+                                <button type="button" class="auth-submit account-manage" id="accountProfileBtn">
+                                    <i class="fas fa-user-cog"></i>
+                                    Configurar perfil
+                                </button>
+                                <button type="button" class="auth-submit account-logout" id="accountLogoutBtn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </button>
+                            </div>
+                        </form>
+            </div>
+            </div>
+            </div>
+
+            <section class="dashboard-hero">
+                <div class="dashboard-hero-info">
+                    <div class="dashboard-hero-badge">
+                        <img src="Pngs/logo.gif" alt="Amex Store" decoding="async">
+                        <span>Amex Store</span>
+                    </div>
+                    <span class="profile-avatar profile-avatar-xl" id="dashboardAvatar" aria-hidden="true">?</span>
+                    <div>
+                        <p class="dashboard-tag" id="dashboardStatus">Conta convidada</p>
+                        <h2 id="dashboardUserName">Ola, visitante</h2>
+                        <p id="dashboardUserEmail">Entre para visualizar suas informacoes e beneficios.</p>
+                    </div>
+                </div>
+                <div class="dashboard-hero-actions">
+                    <button type="button" class="dashboard-btn primary" data-action="edit-profile">
+                        <i class="fas fa-user-edit"></i>
+                        Atualizar perfil
+                    </button>
+                    <button type="button" class="dashboard-btn secondary" data-action="view-history">
+                        <i class="fas fa-history"></i>
+                        Historico de compras
+                    </button>
+                    <button type="button" class="dashboard-btn ghost" data-action="open-support">
+                        <i class="fas fa-headset"></i>
+                        Falar com suporte
+                    </button>
+                </div>
+            </section>
+
+            <section class="dashboard-empty" data-auth-guard="guest">
+                <div class="dashboard-empty-card">
+                    <h2>Entre para acessar sua area exclusiva</h2>
+                        <p>Faca login ou crie uma conta para acompanhar pedidos, gerenciar chaves e personalizar sua experiencia.</p>
+                    <div class="dashboard-empty-actions">
+                        <button type="button" class="dashboard-btn primary" data-action="open-login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Fazer login
+                        </button>
+                        <button type="button" class="dashboard-btn ghost" data-action="open-register">
+                            <i class="fas fa-user-plus"></i>
+                            Criar conta
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-metrics" data-auth-guard="auth">
+                <article class="dashboard-card highlight">
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <p>Total de compras</p>
+                        <strong id="dashboardStatTotal">0</strong>
+                        <span>Resumo da sua jornada na Amex Store.</span>
+                    </div>
+                </article>
+                <article class="dashboard-card">
+                    <div class="dashboard-card-icon success">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <p>Ativos agora</p>
+                        <strong id="dashboardStatActive">0</strong>
+                        <span>Produtos com validade em dia ou vitalicios.</span>
+                    </div>
+                </article>
+                <article class="dashboard-card">
+                    <div class="dashboard-card-icon warning">
+                        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <p>Proximo a expirar</p>
+                        <strong id="dashboardStatNext">--</strong>
+                        <span id="dashboardStatNextLabel">Nenhuma expiracao proxima.</span>
+                    </div>
+                </article>
+                <article class="dashboard-card">
+                    <div class="dashboard-card-icon info">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <div class="dashboard-card-content">
+                        <p>Favoritos salvos</p>
+                        <strong id="dashboardStatFavorites">0</strong>
+                        <span>Produtos que Você deseja revisitar em breve.</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="dashboard-quick-actions" data-auth-guard="auth">
+                <h3>Atalhos rapidos</h3>
+                <div class="dashboard-action-grid">
+                    <button type="button" class="action-tile" data-action="manage-avatar">
+                        <i class="fas fa-camera-retro" aria-hidden="true"></i>
+                        <span>Atualizar foto</span>
+                        <small>Refresque seu perfil visual.</small>
+                    </button>
+                    <button type="button" class="action-tile" data-action="open-history">
+                        <i class="fas fa-receipt" aria-hidden="true"></i>
+                        <span>Notas e comprovantes</span>
+                        <small>Acompanhe entregas e expirados.</small>
+                    </button>
+                    <button type="button" class="action-tile" data-action="open-faq">
+                        <i class="fas fa-book-open" aria-hidden="true"></i>
+                        <span>Central de ajuda</span>
+                        <small>Tutoriais e respostas rapidas.</small>
+                    </button>
+                    <button type="button" class="action-tile" data-action="open-support">
+                        <i class="fas fa-comments" aria-hidden="true"></i>
+                        <span>Suporte dedicado</span>
+                        <small>Time online em horario estendido.</small>
+                    </button>
+                </div>
+            </section>
+
+            <section class="dashboard-checklist" data-auth-guard="auth">
+                <header>
+                    <h3>Checklist pós-compra</h3>
+                    <p>Garanta que tudo esteja pronto após a confirmação do seu pedido.</p>
+                </header>
+                <ul class="checklist-grid" id="postPurchaseChecklist">
+                    <li data-step="login" data-state="pending">
+                        <span class="check-icon">
+                            <i class="fas fa-user-check" aria-hidden="true"></i>
+                        </span>
+                        <div class="checklist-body">
+                            <h4>Acesso confirmado</h4>
+                            <p>Mantenha seus dados atualizados para validar futuras compras.</p>
+                            <button type="button" class="check-action" data-action="edit-profile">
+                                <i class="fas fa-user-cog" aria-hidden="true"></i>
+                                Atualizar cadastro
+                            </button>
+                        </div>
+                        <span class="checklist-status" data-status>Pendente</span>
+                    </li>
+                    <li data-step="download" data-state="pending">
+                        <span class="check-icon">
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                        </span>
+                        <div class="checklist-body">
+                            <h4>Baixe seus arquivos</h4>
+                            <p>Resgate chaves e instaladores direto do seu histórico.</p>
+                            <button type="button" class="check-action" data-action="open-history">
+                                <i class="fas fa-receipt" aria-hidden="true"></i>
+                                Abrir histórico
+                            </button>
+                        </div>
+                        <span class="checklist-status" data-status>Pendente</span>
+                    </li>
+                    <li data-step="activate" data-state="pending">
+                        <span class="check-icon">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        </span>
+                        <div class="checklist-body">
+                            <h4>Ative seu produto</h4>
+                            <p>Siga o passo a passo recomendado para evitar bloqueios e erros.</p>
+                            <a class="check-action" href="amexstore.html#faq" target="_blank" rel="noopener">
+                                <i class="fas fa-book-open" aria-hidden="true"></i>
+                                Ver guias
+                            </a>
+                        </div>
+                        <span class="checklist-status" data-status>Pendente</span>
+                    </li>
+                    <li data-step="support" data-state="pending">
+                        <span class="check-icon">
+                            <i class="fas fa-headset" aria-hidden="true"></i>
+                        </span>
+                        <div class="checklist-body">
+                            <h4>Fale com o suporte</h4>
+                            <p>Envie comprovantes ou tire dúvidas com nosso time 24/7.</p>
+                            <button type="button" class="check-action" data-action="open-support">
+                                <i class="fas fa-comments" aria-hidden="true"></i>
+                                Abrir suporte
+                            </button>
+                        </div>
+                        <span class="checklist-status" data-status>Pendente</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="dashboard-history" id="dashboardHistory" data-auth-guard="auth">
+                <header>
+                    <div>
+                        <h3>Historico de compras</h3>
+                        <p>Monitore entregas, validades e status das suas chaves.</p>
+                    </div>
+                    <button type="button" class="dashboard-btn ghost" id="profileHistoryRefresh" title="Atualizar Historico" aria-label="Atualizar Historico">
+                        <i class="fas fa-sync-alt"></i>
+                        Atualizar
+                    </button>
+                </header>
+                <p class="profile-empty-state" id="profileHistoryEmpty">
+                    Você ainda não realizou nenhuma compra.
+                </p>
+                <ul class="profile-history-list" id="profileHistoryList" aria-live="polite" hidden></ul>
+            </section>
+
+            <section class="dashboard-benefits" data-auth-guard="auth">
+                <h3>Beneficios e seguranca</h3>
+                <div class="dashboard-benefits-grid">
+                    <article>
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <h4>Protecao ativa</h4>
+                        <p>Validacao de chaves em tempo real, com monitoramento continuo contra banimentos.</p>
+                    </article>
+                    <article>
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <h4>Alertas de validade</h4>
+                        <p>Receba avisos automaticos sobre produtos Proximos de expirar para renovar sem surpresas.</p>
+                    </article>
+                    <article>
+                        <i class="fas fa-gift" aria-hidden="true"></i>
+                        <h4>Recompensas</h4>
+                        <p>Desbloqueie cupons exclusivos ao completar missoes e manter seu perfil atualizado.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="dashboard-help">
+                <h3>Precisa de algo?</h3>
+                <div class="dashboard-help-content">
+                    <article>
+                        <h4>Atendimento 24/7</h4>
+                        <p>Nosso time responde em segundos via WhatsApp ou Discord. Estamos sempre online para Você.</p>
+                        <button type="button" class="dashboard-btn primary" data-action="open-support">
+                            <i class="fas fa-headset"></i>
+                            Falar agora
+                        </button>
+                    </article>
+                    <article>
+                        <h4>Autoatendimento completo</h4>
+                        <p>Guias, FAQ e passo a passo de instalacao dos seus produtos preferidos.</p>
+                        <a class="dashboard-link" href="amexstore.html#faq">
+                            <span>Explorar central de ajuda</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </article>
+                    <article>
+                        <h4>preferências de contato</h4>
+                        <p>Escolha como quer ser notificado: e-mail, WhatsApp ou alertas na conta.</p>
+                        <button type="button" class="dashboard-btn secondary" data-action="open-preferences">
+                            <i class="fas fa-sliders-h"></i>
+                            Ajustar notificações
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+            <section class="profile-panel" id="profileModal">
+                <header class="profile-panel-header">
+                    <div>
+                        <h3><i class="fas fa-user-circle"></i> Seu Perfil</h3>
+                        <p>Atualize dados de acesso, foto e defina uma nova senha.</p>
+                    </div>
+                    <button class="profile-panel-close" id="closeProfileModal" aria-label="Fechar ajustes de perfil">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </header>
+                <div class="profile-panel-body">
+                    <form id="profileForm" class="profile-form">
+                        <div class="profile-summary">
+                            <span class="profile-avatar profile-avatar-large" id="profileSummaryAvatar" aria-hidden="true">?</span>
+                            <div class="profile-summary-details">
+                                <p class="profile-summary-name" id="profileSummaryName">Visitante</p>
+                                <p class="profile-summary-email" id="profileSummaryEmail">---</p>
+                                <div class="profile-avatar-actions">
+                                    <button type="button" class="profile-avatar-change" id="profileAvatarTrigger">
+                                        <i class="fas fa-camera"></i>
+                                        Trocar foto
+                                    </button>
+                                    <button type="button" class="profile-avatar-reset" id="profileAvatarReset" disabled>
+                                        <i class="fas fa-undo"></i>
+                                        Remover
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="file" id="profileAvatarInput" accept="image/*" hidden>
+                        <div class="form-group">
+                            <label for="profileName">Nome</label>
+                            <input type="text" id="profileName" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="profileEmail">E-mail</label>
+                            <input type="email" id="profileEmail" required placeholder="seuemail@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="profilePassword">Nova senha</label>
+                            <input type="password" id="profilePassword" placeholder="Deixe em branco para manter">
+                            <span class="profile-hint">Use este campo apenas se quiser trocar a senha.</span>
+                        </div>
+                        <div class="profile-actions">
+                            <button type="submit" class="btn-confirm profile-save-btn">
+                                <i class="fas fa-save"></i>
+                                Salvar alteracoes
+                            </button>
+                            <button type="button" class="btn-secondary profile-logout-btn" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sair da conta
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="account-footer">
+            <p>Precisa de ajuda? <a href="https://wa.me/5516992764211" target="_blank" rel="noopener">Fale com o time Amex</a></p>
+        </footer>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/account-page.js"></script>
+</body>
+</html>
+
+
+
+
+
+
